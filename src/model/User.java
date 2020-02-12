@@ -1,15 +1,25 @@
 package model;
 
+import java.util.ArrayList;
+
 public class User {
 	
-	private char typeOfDocument;
-	private int idNumber;
+	public final static String CEDULA_DE_CIUDADANIA = "Cedula de ciudadania";
+	public final static String TARJETA_DE_IDENTIDAD = "Tarjeta de identidad";
+	public final static String REGISTRO_CIVIL = "Registro civil";
+	public final static String PASAPORTE = "Pasaporte";
+	public final static String CEDULA_DE_EXTRANJERIA = "Cedula de extranjeria";
+	
+	ArrayList<Shift> shift;
+	
+	private String typeOfDocument;
+	private String idNumber;
 	private String firstName;
 	private String lastName;
 	private int phoneNumber;
 	private String address;
 	
-	public User(char typeOfDocument, int idNumber, String firstName, String lastName, int phoneNumber, String address) {
+	public User(String typeOfDocument, String idNumber, String firstName, String lastName, int phoneNumber, String address) {
 		
 		this.typeOfDocument = typeOfDocument;
 		this.idNumber = idNumber;
@@ -17,21 +27,23 @@ public class User {
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
+		
+		shift = new ArrayList<Shift>();
 	}
 
-	public char getTypeOfDocument() {
+	public String getTypeOfDocument() {
 		return typeOfDocument;
 	}
 
-	public void setTypeOfDocument(char typeOfDocument) {
+	public void setTypeOfDocument(String typeOfDocument) {
 		this.typeOfDocument = typeOfDocument;
 	}
 
-	public int getIdNumber() {
+	public String getIdNumber() {
 		return idNumber;
 	}
 
-	public void setIdNumber(int idNumber) {
+	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
 	}
 
@@ -65,6 +77,14 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public ArrayList<Shift> getShift() {
+		return shift;
+	}
+
+	public void setShift(ArrayList<Shift> shift) {
+		this.shift = shift;
 	}
 	
 	
