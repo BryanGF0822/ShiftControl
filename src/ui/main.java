@@ -5,6 +5,7 @@ import model.*;
 import java.util.Scanner;
 
 import exceptions.EmptyBoxException;
+import exceptions.UserNotFoundException;
 
 public class main {
 
@@ -48,14 +49,11 @@ public class main {
 			case 1:
 				try {
 					System.out.println("Select type of document: ");
-					System.out.println("1. Cedula de ciuda");
+					System.out.println("1. Cedula de ciudadania.");
 					System.out.println("2. Tarjeta de identidad.");
 					System.out.println("3. Registro civil.");
 					System.out.println("4. pasaporte.");
 					System.out.println("5. Cedula de extrajeria.");
-//				int typeOfDocument = inputInt.nextInt();inputInt.nextLine();
-//				String dt = control.intToType(typeOfDocument);
-//				System.out.println("");
 
 					int op = Integer.parseInt(sc.nextLine());
 					String typeOfDocument = "";
@@ -74,7 +72,7 @@ public class main {
 					
 					System.out.println("Digite el ID");
 					String idNumber = sc.nextLine();
-					if (idNumber.equals("")) {
+					if (idNumber.equals("")) { 
 						throw new EmptyBoxException();
 						
 					}
@@ -105,7 +103,7 @@ public class main {
 					String address = sc.nextLine();
 					
 					control.addUser(typeOfDocument, idNumber, firstName, lastName, phoneNumber, address);
-					
+					System.out.println("El usuario de agrego correctamente.");
 					
 				} catch (EmptyBoxException e) {
 					System.out.println(e.getMessage());
@@ -115,7 +113,12 @@ public class main {
 
 			case 2:
 				System.out.println("Type the user ID number");
-				int idNumber = Integer.parseInt(sc.nextLine());
+				int id = Integer.parseInt(sc.nextLine());
+				try {
+					System.out.println(control.registerAShift( id));
+				} catch (UserNotFoundException e) {
+					e.getMessage();
+				}
 				break;
 
 			case 3:
