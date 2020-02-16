@@ -2,52 +2,64 @@ package model;
 
 public class Shift {
 	
-	private User shift;
+	private User user;
 	
-	private static char letter;
+	private char letter;
+	private int number;
+	private String theShift;
+	private boolean attended;
 	
-	int num[] = new int[2];
-	
-	private boolean active;
-	private boolean attend;
-	public Shift(User shift, int[] num, boolean active) {
-		this.shift = shift;
-		this.num = num;
-		this.active = active;
-		this.attend = false;
+	public Shift(User user, char letter, int number) {
+		super();
+		this.user = user;
+		this.letter = letter;
+		this.number = number;
 	}
-	public User getShift() {
-		return shift;
+
+	public User getUser() {
+		return user;
 	}
-	public void setShift(User shift) {
-		this.shift = shift;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public static char getLetter() {
+
+	public char getLetter() {
 		return letter;
 	}
-	public static void setLetter(char letter) {
-		Shift.letter = letter;
-	}
-	public int[] getNum() {
-		return num;
-	}
-	public void setNum(int[] num) {
-		this.num = num;
-	}
-	public boolean isActive() {
-		return active;
-	}
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-	public boolean isAttend() {
-		return attend;
-	}
-	public void setAttend(boolean attend) {
-		this.attend = attend;
-	}
-	
-	
 
+	public void setLetter(char letter) {
+		this.letter = letter;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public String getTheShift() {
+		return theShift;
+	}
+
+	public void setTheShift(String Shift) {
+		this.theShift = Shift;
+	}
+
+	public boolean isAttended() {
+		return attended;
+	}
+
+	public void setAttended(boolean attended) {
+		this.attended = attended;
+	}
+
+	
+	public void theTicket() {
+		
+		theShift = letter + number + "";
+	}
 	
 }

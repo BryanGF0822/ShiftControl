@@ -113,12 +113,14 @@ public class main {
 
 			case 2:
 				System.out.println("Type the user ID number");
-				int id = Integer.parseInt(sc.nextLine());
+				String idNumber = sc.nextLine();
 				try {
-					System.out.println(control.registerAShift( id));
+					System.out.println(control.registerAShift(idNumber));
 				} catch (UserNotFoundException e) {
 					e.getMessage();
 				}
+				
+				
 				break;
 
 			case 3:

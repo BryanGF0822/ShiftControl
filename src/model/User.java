@@ -10,8 +10,6 @@ public class User {
 	public final static String PASAPORTE = "Pasaporte";
 	public final static String CEDULA_DE_EXTRANJERIA = "Cedula de extranjeria";
 	
-	ArrayList<Shift> shift;
-	
 	private String typeOfDocument;
 	private String idNumber;
 	private String firstName;
@@ -27,8 +25,7 @@ public class User {
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
-		
-		shift = new ArrayList<Shift>();
+
 	}
 
 	public String getTypeOfDocument() {
@@ -79,14 +76,6 @@ public class User {
 		this.address = address;
 	}
 
-	public ArrayList<Shift> getShift() {
-		return shift;
-	}
-
-	public void setShift(ArrayList<Shift> shift) {
-		this.shift = shift;
-	}
-	
 	
 	
 	
