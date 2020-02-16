@@ -14,6 +14,7 @@ public class Shift {
 		this.user = user;
 		this.letter = letter;
 		this.number = number;
+		attended = false;
 	}
 
 	public User getUser() {

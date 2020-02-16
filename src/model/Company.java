@@ -8,17 +8,25 @@ import exceptions.UserNotFoundException;
 
 public class Company {
 
-	private Shift ultimoDado;
-
-	private Shift ultimoAtendido;
-
 	private ArrayList<User> users;
 
 	private ArrayList<Shift> shifts;
+	
+	private Shift actuals;
 
 	public Company() {
 
 		users = new ArrayList<User>();
+		
+		shifts = new ArrayList<Shift>();
+		
+		Shift sh = new Shift(null, 'A', 00);
+		
+		sh.setAttended(true);
+		
+		shifts.add(sh);
+		
+		unmetShift();
 	}
 
 	public ArrayList<User> getUsers() {
@@ -27,6 +35,16 @@ public class Company {
 
 	public void setUsers(ArrayList<User> users) {
 		this.users = users;
+	}
+	
+	
+
+	public Shift getActuals() {
+		return actuals;
+	}
+
+	public void setActuals(Shift actuals) {
+		this.actuals = actuals;
 	}
 
 	public void addUser(String typeOfDocument, String idNumber, String firstName, String lastName, int phoneNumber,
@@ -102,6 +120,59 @@ public class Company {
 		
 		return theShift;
 		
+	}
+	
+	public void addShift(String idNumber) throws UserNotFoundException {
+		
+		if (shifts.get(0).getUser() == null) {
+			
+			User newUser = searchUser(idNumber);
+			shifts.get(0).setUser(newUser);
+			
+		}else {
+			
+			User u = searchUser(idNumber);
+			String num0 = theNewShift();
+			String num1;
+			if (num0.charAt(1) == 0) {
+				
+				num1 = num0.charAt(1) + num0.charAt(2) + "";
+			
+			}else {
+				num1 = num0.charAt(1) + "";
+			}
+			Shift sh = new Shift(num0.charAt(0), Integer.parseInt(num1), u);			
+			shifts.add(sh);
+		}
+		
+	}
+	
+	public void unmetShift() {
+		
+		boolean attended =  false;
+		
+		for (int i = 0; i < shifts.size() && !attended; i++) {
+			
+		if (shifts.get(i) != null) {
+			
+			if (!shifts.get(i).isAttended()) {
+				
+				System.out.println("He hasn't been attended to");
+				attended = true;
+				actuals = shifts.get(i);
+				
+			}else {
+				throw new NullPointerException("there are no shifts to attend to.");
+			}
+				
+			}
+			
+		}
+	}
+	
+	public void attended() {
+		
+		unmetShift();
 	}
 
 	
