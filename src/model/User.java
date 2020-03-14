@@ -1,27 +1,33 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable {
 	
 	public final static String CEDULA_DE_CIUDADANIA = "Cedula de ciudadania";
 	public final static String TARJETA_DE_IDENTIDAD = "Tarjeta de identidad";
-	public final static String REGISTRO_CIVIL = "Registro civil";
+	public final static String REGISTRO_CIVIL = "Regitro civil";
 	public final static String PASAPORTE = "Pasaporte";
 	public final static String CEDULA_DE_EXTRANJERIA = "Cedula de extranjeria";
 	
+	private ArrayList<Shift> personalShifts;
+
 	private String typeOfDocument;
 	private String idNumber;
-	private String firstName;
+	private String firtsName;
 	private String lastName;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String address;
-	
-	public User(String typeOfDocument, String idNumber, String firstName, String lastName, int phoneNumber, String address) {
+
+	public User(String typeOfDocument, String idNumber, String firtsName, String lastName, String phoneNumber,
+			String address) {
 		
+		personalShifts = new ArrayList<Shift>();
+
 		this.typeOfDocument = typeOfDocument;
 		this.idNumber = idNumber;
-		this.firstName = firstName;
+		this.firtsName = firtsName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
@@ -44,12 +50,12 @@ public class User {
 		this.idNumber = idNumber;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFirtsName() {
+		return firtsName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirtsName(String firtsName) {
+		this.firtsName = firtsName;
 	}
 
 	public String getLastName() {
@@ -60,11 +66,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -76,7 +82,19 @@ public class User {
 		this.address = address;
 	}
 
+	public void agregarShift(Shift actualShift) {
+		
+		personalShifts.add(actualShift);
+	}
+
+	public ArrayList<Shift> getPersonalShifts() {
+		return personalShifts;
+	}
+
+	public void setPersonalShifts(ArrayList<Shift> personalShifts) {
+		this.personalShifts = personalShifts;
+	}
 	
 	
-	
+
 }

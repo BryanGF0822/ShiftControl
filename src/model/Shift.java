@@ -1,28 +1,22 @@
 package model;
 
-public class Shift {
+import java.io.Serializable;
+import java.util.Arrays;
+
+public class Shift implements Serializable {
 	
-	private User user;
-	
+	private TypeOfShift shiftType;
+
 	private char letter;
-	private int number;
+	private int[] number = new int[2];
 	private String theShift;
 	private boolean attended;
 	
-	public Shift(User user, char letter, int number) {
-		super();
-		this.user = user;
+	public Shift(char letter, int[] number) {
+		
 		this.letter = letter;
 		this.number = number;
 		attended = false;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public char getLetter() {
@@ -33,11 +27,11 @@ public class Shift {
 		this.letter = letter;
 	}
 
-	public int getNumber() {
+	public int[] getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(int[] number) {
 		this.number = number;
 	}
 
@@ -45,8 +39,8 @@ public class Shift {
 		return theShift;
 	}
 
-	public void setTheShift(String Shift) {
-		this.theShift = Shift;
+	public void setTheShift(String theShift) {
+		this.theShift = theShift;
 	}
 
 	public boolean isAttended() {
@@ -57,10 +51,11 @@ public class Shift {
 		this.attended = attended;
 	}
 
-	
-	public void theTicket() {
-		
-		theShift = letter + number + "";
+	@Override
+	public String toString() {
+		return "Shift [letter=" + letter + ", number=" + Arrays.toString(number) + "]";
 	}
+	
+	
 	
 }
