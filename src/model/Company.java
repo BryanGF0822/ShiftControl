@@ -55,7 +55,7 @@ public class Company implements Serializable {
 		
 	}
 	
-	public Shift newShift() {
+	public Shift newShift(String ctime) {
 		
 		int position = shifts.size()-1;
 		
@@ -97,18 +97,18 @@ public class Company implements Serializable {
 			number[0] = 0;
 			
 		}
-		Shift theShift = new Shift(letter, number);
+		Shift theShift = new Shift(letter, number, ctime);
 		
 		return theShift;
 	}
 	
-	public void addShift(String idNumber, String typeS, double timeS) {
+	public void addShift(String idNumber, String typeS, double timeS, String ctime) {
 		
 		User us = searchUser(idNumber);
 		
 		if (us != null) {
 			
-			Shift actualShift = newShift();
+			Shift actualShift = newShift(ctime);
 			TypeOfShift typeShift = new TypeOfShift(typeS, timeS);
 			actualShift.setShiftType(typeShift);
 			shifts.add(actualShift);

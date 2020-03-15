@@ -10,12 +10,14 @@ public class Shift implements Serializable {
 	private char letter;
 	private int[] number = new int[2];
 	private String theShift;
+	private String creationTime;
 	private boolean attended;
 	
-	public Shift(char letter, int[] number) {
+	public Shift(char letter, int[] number, String creationTime) {
 		
 		this.letter = letter;
 		this.number = number;
+		this.creationTime = creationTime;
 		attended = false;
 	}
 
@@ -41,6 +43,14 @@ public class Shift implements Serializable {
 
 	public void setTheShift(String theShift) {
 		this.theShift = theShift;
+	}
+
+	public String getCreationTime() {
+		return creationTime;
+	}
+
+	public void setCreationTime(String creationTime) {
+		this.creationTime = creationTime;
 	}
 
 	public boolean isAttended() {

@@ -13,6 +13,8 @@ import java.io.ObjectOutputStream;
 import model.*;
 
 public class Main {
+	
+	public static Time t = new Time();
 
 	static Company control = new Company();
 
@@ -45,7 +47,11 @@ public class Main {
 		int option = 0;
 
 		while (exit == false) {
-
+			
+			t.refresh();
+			System.out.println(t.getAll());
+			System.out.println("");
+			
 			System.out.println("MENU DE OPCIONES");
 			System.out.println(" ");
 
@@ -116,7 +122,7 @@ public class Main {
 				
 				if (control.searchUser(idNumberToSearch) != null) {
 
-					control.addShift(idNumberToSearch, typeS, timeS);
+					control.addShift(idNumberToSearch, typeS, timeS, t.getActualTime());
 
 					System.out.println(control.searchUser(idNumberToSearch).getPersonalShifts().toString());
 
