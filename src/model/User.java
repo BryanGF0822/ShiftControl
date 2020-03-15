@@ -95,6 +95,19 @@ public class User implements Serializable {
 		this.personalShifts = personalShifts;
 	}
 	
+	public String toString() {
+		
+		String msg = "";
+		msg += "The User: " + idNumber + " " + firtsName + " " + lastName;
+		
+		for (int i = 0; i < personalShifts.size(); i++) {
+			
+			msg += personalShifts.get(i);
+		}
+		
+		return msg;
+	}
+	
 	
 
 }

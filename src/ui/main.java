@@ -51,7 +51,8 @@ public class Main {
 
 			System.out.println("1. Add a user.");
 			System.out.println("2. Make a shift");
-			System.out.println("3. Exit");
+			System.out.println("3. Show Report");
+			System.out.println("4. Exit");
 			System.out.println(" ");
 
 			System.out.println("please enter the action you wish to perform");
@@ -102,20 +103,31 @@ public class Main {
 				System.out.println(" ");
 
 				break;
+				
 			case 2:
 				System.out.println("Please, type the id number to the user that you want to give a shift");
 				String idNumberToSearch = br.readLine();
-
+				
+				System.out.println("Type of Shifth:");
+				String typeS = br.readLine();
+				
+				System.out.println("Time of shifth: ");
+				double timeS = Double.parseDouble(br.readLine());
+				
 				if (control.searchUser(idNumberToSearch) != null) {
 
-					control.addShift(idNumberToSearch);
+					control.addShift(idNumberToSearch, typeS, timeS);
 
 					System.out.println(control.searchUser(idNumberToSearch).getPersonalShifts().toString());
 
 				}
 
 				break;
+				
 			case 3:
+				break;
+				
+			case 4:
 				exit = true;
 				saveFiles();
 				System.out.println("Menú Cerrado");
@@ -153,10 +165,8 @@ public class Main {
 			control = (Company) fileIn.readObject();
 			
 			if (control == null) {
-				
 				control = new Company();
 			}
-			
 			fileIn.close();
 			
 

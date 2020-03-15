@@ -102,17 +102,25 @@ public class Company implements Serializable {
 		return theShift;
 	}
 	
-	public void addShift(String idNumber) {
+	public void addShift(String idNumber, String typeS, double timeS) {
 		
 		User us = searchUser(idNumber);
 		
 		if (us != null) {
 			
 			Shift actualShift = newShift();
+			TypeOfShift typeShift = new TypeOfShift(typeS, timeS);
+			actualShift.setShiftType(typeShift);
 			shifts.add(actualShift);
 			
 			us.agregarShift(actualShift);
 			
 		}
+	}
+	
+	public String showReport() {
+		return null;
+		
+		
 	}
 }

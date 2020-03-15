@@ -51,9 +51,19 @@ public class Shift implements Serializable {
 		this.attended = attended;
 	}
 
+	public TypeOfShift getShiftType() {
+		return shiftType;
+	}
+
+	public void setShiftType(TypeOfShift shiftType) {
+		this.shiftType = shiftType;
+	}
+
 	@Override
 	public String toString() {
-		return "Shift [letter=" + letter + ", number=" + Arrays.toString(number) + "]";
+		
+		String msg = "";
+		return msg += "Shift: " + letter + Arrays.toString(number) + " Type: " + shiftType.getTypeS() + " Time: " + shiftType.getTimeS();
 	}
 	
 	
