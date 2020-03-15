@@ -119,8 +119,12 @@ public class Company implements Serializable {
 	}
 	
 	public String showReport() {
-		return null;
 		
+		String msg = "";
+		for (int i = 0; i < users.size(); i++) {
 		
+			msg += users.get(i) + "\n";
+		}
+		return msg;
 	}
 }

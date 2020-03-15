@@ -98,11 +98,11 @@ public class User implements Serializable {
 	public String toString() {
 		
 		String msg = "";
-		msg += "The User: " + idNumber + " " + firtsName + " " + lastName;
+		msg += "The User: " + idNumber + " " + firtsName + " " + lastName +"\n";
 		
 		for (int i = 0; i < personalShifts.size(); i++) {
 			
-			msg += personalShifts.get(i);
+			msg += personalShifts.get(i) + "\n";
 		}
 		
 		return msg;

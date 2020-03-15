@@ -125,6 +125,7 @@ public class Main {
 				break;
 				
 			case 3:
+				System.out.println(control.showReport());
 				break;
 				
 			case 4:
